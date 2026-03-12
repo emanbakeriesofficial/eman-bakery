@@ -63,7 +63,7 @@ export default function Hero() {
           className="max-w-2xl text-base md:text-lg leading-relaxed mb-10"
           style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)', opacity: 0.85 }}
         >
-          Daily fresh bread production serving the Hejaz food sector — restaurants, hotels,
+          Manufacturing daily fresh bread serving the Hejaz food sector — restaurants, hotels,
           catering &amp; more across Jeddah, Makkah, and Madinah.
         </p>
 

@@ -22,19 +22,20 @@ const contactInfo = [
       </svg>
     ),
     label: 'Location',
-    value: 'Jeddah, Saudi Arabia',
-    valueAr: 'جدة، المملكة العربية السعودية',
+    value: 'Hira Street, Al Nahdah Dist. Jeddah, Makkah Province, Saudi Arabia',
+    valueAr: 'شارع حراء، حي النهضة، جدة، منطقة مكة المكرمة، المملكة العربية السعودية',
   },
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
     ),
-    label: 'Phone',
-    // TODO: Replace with actual phone number
-    value: '+966 XX XXX XXXX',
+    label: 'Email',
+    value: 'info@emanbakeries.com',
     valueAr: '',
+    href: 'mailto:info@emanbakeries.com',
   },
   {
     icon: (
@@ -43,9 +44,22 @@ const contactInfo = [
       </svg>
     ),
     label: 'WhatsApp',
-    // TODO: Replace with actual WhatsApp number
-    value: '+966 XX XXX XXXX',
+    value: '920 012 3456',
     valueAr: '',
+    href: 'https://wa.me/9200123456',
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+    label: 'Website',
+    value: 'www.emanbakeries.com',
+    valueAr: '',
+    href: 'https://www.emanbakeries.com',
   },
   {
     icon: (
@@ -255,40 +269,49 @@ export default function Contact() {
 
           {/* Right: Contact info tiles */}
           <div className="space-y-4">
-            {contactInfo.map((info) => (
-              <div
-                key={info.label}
-                className="contact-animate border rounded-lg p-5 flex items-start gap-4 transition-all duration-300 hover:border-[var(--gold)]/30"
-                style={{
-                  background: 'var(--bg-card)',
-                  borderColor: 'var(--border-card)',
-                }}
-              >
-                <div style={{ color: 'var(--gold)' }}>{info.icon}</div>
-                <div>
-                  <p
-                    className="text-xs uppercase tracking-[0.1em] mb-1"
-                    style={{ fontFamily: 'var(--font-ui)', color: 'var(--text-dim)' }}
-                  >
-                    {info.label}
-                  </p>
-                  <p
-                    className="text-base"
-                    style={{ fontFamily: 'var(--font-body)', color: 'var(--text-cream)' }}
-                  >
-                    {info.value}
-                  </p>
-                  {info.valueAr && (
+            {contactInfo.map((info) => {
+              const Wrapper = info.href ? 'a' : 'div';
+              const wrapperProps = info.href
+                ? { href: info.href, target: info.href.startsWith('http') ? '_blank' as const : undefined, rel: info.href.startsWith('http') ? 'noopener noreferrer' : undefined }
+                : {};
+              return (
+                <Wrapper
+                  key={info.label}
+                  {...wrapperProps}
+                  className={`contact-animate border rounded-lg p-5 flex items-start gap-4 transition-all duration-300 hover:border-[var(--gold)]/30 ${info.href ? 'cursor-pointer group' : ''}`}
+                  style={{
+                    background: 'var(--bg-card)',
+                    borderColor: 'var(--border-card)',
+                    display: 'flex',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <div style={{ color: 'var(--gold)' }}>{info.icon}</div>
+                  <div>
                     <p
-                      className="text-sm mt-1"
-                      style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+                      className="text-xs uppercase tracking-[0.1em] mb-1"
+                      style={{ fontFamily: 'var(--font-ui)', color: 'var(--text-dim)' }}
                     >
-                      {info.valueAr}
+                      {info.label}
                     </p>
-                  )}
-                </div>
-              </div>
-            ))}
+                    <p
+                      className={`text-base ${info.href ? 'group-hover:text-[var(--gold)] transition-colors' : ''}`}
+                      style={{ fontFamily: 'var(--font-body)', color: 'var(--text-cream)' }}
+                    >
+                      {info.value}
+                    </p>
+                    {info.valueAr && (
+                      <p
+                        className="text-sm mt-1"
+                        style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+                      >
+                        {info.valueAr}
+                      </p>
+                    )}
+                  </div>
+                </Wrapper>
+              );
+            })}
           </div>
         </div>
       </div>

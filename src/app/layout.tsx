@@ -27,7 +27,17 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Eman Bakery | The Taste of Tradition | مخبز إيمان",
   description:
-    "Eman Bakery — Daily fresh bread production serving the Hejaz food sector since 2007. Restaurants, hotels, catering & more across Jeddah, Makkah, and Madinah.",
+    "Eman Bakery — Manufacturing daily fresh bread since 2007, serving the Hejaz food sector. Restaurants, hotels, catering & more across Jeddah, Makkah, and Madinah.",
+  keywords: "Eman Bakery, مخبز إيمان, fresh bread, bakery Jeddah, bread manufacturer, Saudi bakery, Hejaz food sector",
+  authors: [{ name: "Eman Bakery" }],
+  openGraph: {
+    title: "Eman Bakery | The Taste of Tradition",
+    description: "Manufacturing daily fresh bread since 2007. Serving restaurants, hotels, and catering across Jeddah, Makkah, and Madinah.",
+    url: "https://www.emanbakeries.com",
+    siteName: "Eman Bakery",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

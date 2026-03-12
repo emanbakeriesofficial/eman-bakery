@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const footerLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -31,28 +33,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <path
-                  d="M16 2 C16 2 12 8 12 14 C12 18 14 22 16 26 C18 22 20 18 20 14 C20 8 16 2 16 2Z"
-                  fill="var(--gold)"
-                  opacity="0.9"
-                />
-                <path
-                  d="M16 8 C13 6 8 7 6 10 C8 10 12 10 16 14"
-                  stroke="var(--gold)"
-                  strokeWidth="1.5"
-                  fill="none"
-                  opacity="0.7"
-                />
-                <path
-                  d="M16 8 C19 6 24 7 26 10 C24 10 20 10 16 14"
-                  stroke="var(--gold)"
-                  strokeWidth="1.5"
-                  fill="none"
-                  opacity="0.7"
-                />
-                <line x1="16" y1="26" x2="16" y2="30" stroke="var(--gold)" strokeWidth="2" />
-              </svg>
+              <Image
+                src="/logo.jpg"
+                alt="Eman Bakery Logo"
+                width={44}
+                height={44}
+                className="rounded-full"
+              />
               <span
                 className="text-lg font-bold tracking-[0.15em]"
                 style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-cream)' }}
@@ -91,7 +78,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Location */}
+          {/* Location & Contact */}
           <div>
             <h4
               className="text-sm uppercase tracking-[0.15em] mb-4"
@@ -103,14 +90,47 @@ export default function Footer() {
               className="text-sm mb-1"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
             >
-              Jeddah, Saudi Arabia
+              Hira Street, Al Nahdah Dist.
             </p>
             <p
-              className="text-sm"
+              className="text-sm mb-1"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
             >
-              جدة، المملكة العربية السعودية
+              Jeddah, Makkah Province, Saudi Arabia
             </p>
+            <p
+              className="text-sm mb-3"
+              style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+            >
+              شارع حراء، حي النهضة، جدة
+            </p>
+            <div className="space-y-1">
+              <a
+                href="mailto:info@emanbakeries.com"
+                className="text-sm block transition-colors hover:text-[var(--gold)]"
+                style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+              >
+                info@emanbakeries.com
+              </a>
+              <a
+                href="https://wa.me/9200123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm block transition-colors hover:text-[var(--gold)]"
+                style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+              >
+                WhatsApp: 920 012 3456
+              </a>
+              <a
+                href="https://www.emanbakeries.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm block transition-colors hover:text-[var(--gold)]"
+                style={{ fontFamily: 'var(--font-body)', color: 'var(--text-dim)' }}
+              >
+                www.emanbakeries.com
+              </a>
+            </div>
           </div>
         </div>
 
