@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --bg-card: #1a1a1a;
+  --border-card: #2a2a2a;
+
+  --gold: #c9a96e;
+  --gold-bright: #d4af37;
+  --gold-dark: #b8860b;
+  --brown-deep: #3e2723;
+  --brown-medium: #5d4037;
+  --brown-light: #8B7355;
+  --ember: #ff8c00;
+  --amber: #cd853f;
+
+  --text-cream: #f5f0e8;
+  --text-muted: #e8dcc8;
+  --text-dim: #a09080;
+
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-cormorant);
+  --font-ui: var(--font-space);
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-dark: var(--gold-dark);
+  --color-ember: var(--ember);
+  --color-amber: var(--amber);
+  --color-cream: var(--text-cream);
+  --color-muted: var(--text-muted);
+  --color-dim: var(--text-dim);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-card: var(--bg-card);
+  --color-border-card: var(--border-card);
+  --color-brown-deep: var(--brown-deep);
+  --color-brown-medium: var(--brown-medium);
+  --color-brown-light: var(--brown-light);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-cream);
+  font-family: var(--font-body), Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brown-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+/* Hide default cursor on desktop when animated cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
